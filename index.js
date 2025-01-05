@@ -37,7 +37,7 @@ db.connect((err) => {
 
 
 app.get("/", (req, res) => {
-    res.render("index.ejs");
+    res.render("inde.ejs");
 })
 app.post("/data", async (req, res) => {
     const date =await req.body.date;
@@ -48,7 +48,7 @@ app.post("/data", async (req, res) => {
         qu = await db.query("SELECT name,email,city,text,number FROM infos WHERE dates = $1", [date]);
         if(qu.rows.length !== 0) {
 
-            res.render("index.ejs",{ db:qu.rows});
+            res.render("inde.ejs",{ db:qu.rows});
             
             console.log(qu.rows);
            

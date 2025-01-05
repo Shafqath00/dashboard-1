@@ -12,75 +12,49 @@
 
 <body>
     <div class="main">
-        <div class="header">
-            <h1>DB viewer</h1>
-        </div>
-        <div>
-            <form action="/data" method="post">
-                <input type="date" name="date" id="date">
-                <input type="submit" value="submit">
-            </form>
+        <div class="">
+
+
+            <div class="header">
+                <h1>DB viewer</h1>
+            </div>
             <div>
-                <div class="container">
-                    <div class="row">
-                        <% if(locals.db){ %>
-                            <% if(locals.db.rows !== 0){ %>
-                                <% locals.db.forEach((data)=>{ %>
-                                    <div class="col " id="col">
-                                        <div class="name d-flex align-items-center">
-
-                                            <h5>
-                                                <%= data.name %>
-                                            </h5>
-                                        </div>
-                                        <div class="city  d-flex align-items-cente">
-
-                                            <h5>
-                                                <%= data.city %>
-                                            </h5>
-                                        </div>
-                                        <div class="num  d-flex align-items-cente">
-
-                                            <h5>
-                                                <%= data.number %>
-                                            </h5>
-                                        </div>
-                                        <div class="email  d-flex align-items-cente">
-
-                                            <h5 style="text-align: end;">
-                                                <%= data.email %>
-                                            </h5>
-                                        </div>
-                                        <div class="text  d-flex align-items-cente">
-
-                                            <h5>
-                                                <%= data.text %>
-                                            </h5>
-                                        </div>
-                                    </div>
+                <form action="/data" method="post">
+                    <input type="date" name="date" id="date">
+                    <input type="submit" value="submit">
+                </form>
+            </div>
+            <div>
+                <div class="row">
+                    <% if(locals.db){ %>
+                        <% if(locals.db.rows !==0){ %>
+                            <% locals.db.forEach((data)=>{ %>
+                                <div class="col-sm-12 col-lg " id="col">
+                                    <h5>
+                                        <%= data.name %>
+                                    </h5>
+                                    <h5>
+                                        <%= data.city %>
+                                    </h5>
+                                    <h5>
+                                        <%= data.number %>
+                                    </h5>
+                                    <h5>
+                                        <%= data.email %>
+                                    </h5>
+                                    <h5>
+                                        <%= data.text %>
+                                    </h5>
+                                </div>
                                 <% }); %>
-                            <% }else{ %>
+                                    <% }else{ %>
                                         <div>
                                             <h1>No database found !!!</h1>
                                         </div>
-                                       
-                        <% }%>
-                        <% }%>
-                    </div>
-                    <!-- <table >
-                        <tr>
-                           <th>Name</th>
-                           <th>Email</th>
-                           <th>City</th>
-                           <th>Number</th>
-                           <th>Text</th>
-                        </tr>
-                            
-                        </tr>
-                        
-                    </table> -->
-                </div>
 
+                                        <% }%>
+                                            <% }%>
+                </div>
             </div>
         </div>
     </div>
